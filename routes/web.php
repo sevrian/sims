@@ -21,16 +21,21 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 
-Route::resource('guru', 'Admin\MasterGuruController');
+Route::resources([
+	'guru'=>'Admin\MasterGuruController',
+	'kelompok_mapel'=>'Admin\KelompokMapelController',
+	'mapel'=>'Admin\MapelController',
+	'jadwal_pelajaran'=>'Admin\JadwalPelajaranController',
+]);
 
 Route::get('siswa', function () {
     return view('admin.master.siswa.index');
 });
 
-Route::get('mapel', function () {
-    return view('admin.master.mapel.index');
-});
+// Route::get('mapel', function () {
+//     return view('admin.master.mapel.index');
+// });
 
-Route::get('kelas', function () {
-    return view('admin.master.kelas.index');
-});
+// Route::get('kelas', function () {
+//     return view('admin.master.kelas.index');
+// });
