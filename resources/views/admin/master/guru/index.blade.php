@@ -21,7 +21,7 @@
            </div>
        </div>
        <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-        <button type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</button>
+        <a href="{{route('guru.create')}}" type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
        </div>
    </div>
    <div class="content-body">

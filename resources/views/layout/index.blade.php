@@ -29,6 +29,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/vendors.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/ui/prism.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -38,7 +39,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/components.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/themes/dark-layout.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/themes/semi-dark-layout.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
+ 
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
@@ -324,6 +325,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Vendor JS-->
     <script src="{{ url ('app-assets/vendors/js/vendors.min.js')}}"></script>
     <script src="{{ url ('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{ url ('app-assets/js/scripts/datatables/datatable.js')}}"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
@@ -334,7 +336,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{ url ('app-assets/js/core/app-menu.js')}}"></script>
     <script src="{{ url ('app-assets/js/core/app.js')}}"></script>
     <script src="{{ url ('app-assets/js/core/app.js')}}"></script>
-    <script src="{{ url ('app-assets/js/scripts/datatables/datatable.js')}}"></script>
+
     
     <!-- END: Theme JS-->
 
