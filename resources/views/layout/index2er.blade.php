@@ -29,6 +29,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/vendors.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/ui/prism.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -38,6 +39,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/components.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/themes/dark-layout.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/themes/semi-dark-layout.css')}}">
+ 
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
@@ -297,15 +299,49 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
     <!-- BEGIN: Main Menu-->
-    @include('layout.sidenav')
+    <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+        <div class="navbar-header">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="#">
+                        <div class="brand-logo"></div>
+                        <h2 class="brand-text mb-0">SIMS</h2>
+                    </a></li>
+                    <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="icon-x d-block d-xl-none font-medium-4 primary toggle-icon feather icon-disc"></i><i class="toggle-icon font-medium-4 d-none d-xl-block primary collapse-toggle-icon feather icon-disc" data-ticon="icon-disc"></i></a></li>
+            </ul>
+        </div>
+        
+       <div class="shadow-bottom"></div>
+       <div class="main-menu-content">
+           <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+               <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span><span class="badge badge badge-warning badge-pill float-right">2</span></a>
+               </li>
+               <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title" data-i18n="Starter kit">Master Data</span></a>
+                   <ul class="menu-content">
+                       <li class="{{ Request::is('guru')?'active':''}}"><a href="{{ url ('guru')}}"><i></i><span class="menu-item" data-i18n="2 columns">Master Guru</span></a>
+                       </li>
+                       <li class="{{ Request::is('siswa')?'active':''}}"><a href="{{ url ('siswa')}}"><i></i><span class="menu-item" data-i18n="Fixed navbar">Master Siswa</span></a>
+                       </li>
+                       <li class="{{ Request::is('mapel')?'active':''}}"><a href="{{ url ('mapel')}}"><i></i><span class="menu-item" data-i18n="Floating navbar">Master Pelajaran</span></a>
+                       </li>
+                       <li class="{{ Request::is('kelas')?'active':''}}"><a href="{{ url ('kelas')}}"><i></i><span class="menu-item" data-i18n="Fixed layout">Master Kelas</span></a>
+                       </li>
+                   </ul>
+               </li>
+               <li class=" nav-item"><a href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation"><i class="feather icon-folder"></i><span class="menu-title" data-i18n="Documentation">Documentation</span></a>
+               </li>
+               <li class=" nav-item"><a href="https://pixinvent.ticksy.com/"><i class="feather icon-life-buoy"></i><span class="menu-title" data-i18n="Raise Support">Raise Support</span></a>
+               </li>
+           </ul>
+       </div>
+    </div>
     <!-- END: Main Menu-->
 
-   <!-- BEGIN: Content-->
-   <div class="app-content content">
-      <div class="content-overlay"></div>
-      <div class="header-navbar-shadow"></div>
-     @yield('content')
-   </div>
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+       @yield('content')
+     </div>
     <!-- END: Content-->
 
     <div class="sidenav-overlay"></div>
@@ -323,6 +359,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Vendor JS-->
     <script src="{{ url ('app-assets/vendors/js/vendors.min.js')}}"></script>
     <script src="{{ url ('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{ url ('app-assets/js/scripts/datatables/datatable.js')}}"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
@@ -332,6 +369,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Theme JS-->
     <script src="{{ url ('app-assets/js/core/app-menu.js')}}"></script>
     <script src="{{ url ('app-assets/js/core/app.js')}}"></script>
+    <script src="{{ url ('app-assets/js/core/app.js')}}"></script>
+
+    
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
