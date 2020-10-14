@@ -19,7 +19,7 @@
                         data-i18n="Dashboard">Dashboard</span><span
                         class="badge badge badge-warning badge-pill float-right">2</span></a>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="feather icon-box"></i><span class="menu-title"
                         data-i18n="Starter kit">Master Data</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('guru')?'active':''}}"><a href="{{ url ('guru')}}"><i></i><span
@@ -33,7 +33,7 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="feather icon-grid"></i><span class="menu-title"
                         data-i18n="Starter kit">Data Mata Pelajaran</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('kelompok_mapel')?'active':''}}"><a
@@ -49,7 +49,7 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="feather icon-list"></i><span class="menu-title"
                         data-i18n="Starter kit">Data Kehadiran</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('kehadiran')?'active':''}}"><a href="{{ url ('kehadiran')}}"><i></i><span
@@ -65,7 +65,7 @@
                     </li>
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="feather icon-credit-card"></i><span class="menu-title"
                         data-i18n="Starter kit">Data Keuangan</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('keuangan_jenis')?'active':''}}"><a
@@ -80,7 +80,7 @@
                 </ul>
             </li>
 
-            <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="feather icon-file-text"></i><span class="menu-title"
                         data-i18n="Starter kit">Data Penilainan</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('kompetensi_dasar')?'active':''}}"><a
@@ -122,7 +122,7 @@
 
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="feather icon-settings"></i><span class="menu-title"
                         data-i18n="Starter kit">Data Setting</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('profil_sekolah')?'active':''}}"><a
@@ -135,7 +135,7 @@
 
                 </ul>
             </li>
-            <li class=" nav-item"><a href="#"><i class="feather icon-zap"></i><span class="menu-title"
+            <li class=" nav-item"><a href="#"><i class="feather icon-server"></i><span class="menu-title"
                         data-i18n="Starter kit">Data lain</span></a>
                 <ul class="menu-content">
                     <li class="{{ Request::is('data_agama')?'active':''}}"><a
