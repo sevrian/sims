@@ -41,6 +41,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/core/menu/menu-types/vertical-menu.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/css/pages/card-analytics.css')}}">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->

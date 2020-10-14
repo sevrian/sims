@@ -15,9 +15,8 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item"><a href="#"><i class="feather icon-home"></i><span class="menu-title"
-                        data-i18n="Dashboard">Dashboard</span><span
-                        class="badge badge badge-warning badge-pill float-right">2</span></a>
+            <li class="{{ Request::is('/')?'active':''}}"><a href="{{url ('/')}}"><i class="feather icon-home"></i><span class="menu-title"
+                        data-i18n="Dashboard">Dashboard</span></a>
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-box"></i><span class="menu-title"
                         data-i18n="Starter kit">Master Data</span></a>
@@ -38,7 +37,7 @@
                 <ul class="menu-content">
                     <li class="{{ Request::is('kelompok_mapel')?'active':''}}"><a
                             href="{{ url ('kelompok_mapel')}}"><i></i><span class="menu-item"
-                                data-i18n="2 columns">Kelompok Mata Pelajaran</a>
+                                data-i18n="2 columns">Kelompok Pelajaran</a>
                     </li>
                     <li class="{{ Request::is('mapel')?'active':''}}"><a href="{{ url ('mapel')}}"><i></i><span
                                 class="menu-item" data-i18n="Fixed navbar">Mata Pelajaran</span></a>

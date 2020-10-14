@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout.index');
+    return view('admin.dashboard');
 });
 
 Route::get('/admin', function () {
@@ -23,14 +23,14 @@ Route::get('/admin', function () {
 
 Route::resource('guru', 'Admin\MasterGuruController');
 
-Route::get('/siswa', function () {
+Route::get('siswa', function () {
     return view('admin.master.siswa.index');
 });
 
-Route::get('/mapel', function () {
+Route::get('mapel', function () {
     return view('admin.master.mapel.index');
 });
 
-Route::get('/kelas', function () {
+Route::get('kelas', function () {
     return view('admin.master.kelas.index');
 });
