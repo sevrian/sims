@@ -128,6 +128,10 @@
                             href="{{ url ('profil_sekolah')}}"><i></i><span class="menu-item"
                                 data-i18n="2 columns">Profil Sekolah</a>
                     </li>
+                    <li class="{{ Request::is('tahun_akademik')?'active':''}}"><a
+                        href="{{ url ('tahun_akademik')}}"><i></i><span class="menu-item"
+                            data-i18n="2 columns">Tahun Akademik</a>
+                </li>
                     <li class="{{ Request::is('catatan')?'active':''}}"><a href="{{ url ('catatan')}}"><i></i><span
                                 class="menu-item" data-i18n="Fixed navbar">Catatan</span></a>
                     </li>
@@ -137,8 +141,8 @@
             <li class=" nav-item"><a href="#"><i class="feather icon-server"></i><span class="menu-title"
                         data-i18n="Starter kit">Data lain</span></a>
                 <ul class="menu-content">
-                    <li class="{{ Request::is('data_agama')?'active':''}}"><a
-                            href="{{ url ('data_agama')}}"><i></i><span class="menu-item"
+                    <li class="{{ Request::is('agama')?'active':''}}"><a
+                            href="{{ url ('agama')}}"><i></i><span class="menu-item"
                                 data-i18n="2 columns">agama</a>
                     </li>
                     <li class="{{ Request::is('data_warga')?'active':''}}"><a
@@ -149,10 +153,7 @@
                             href="{{ url ('jenis_ptk')}}"><i></i><span class="menu-item"
                                 data-i18n="2 columns">Jenis PTK</a>
                     </li>
-                    <li class="{{ Request::is('data_warga')?'active':''}}"><a
-                            href="{{ url ('data_warga')}}"><i></i><span class="menu-item"
-                                data-i18n="Fixed navbar">Kewarganegraan</span></a>
-                    </li>
+                   
 
                 </ul>
             </li>
