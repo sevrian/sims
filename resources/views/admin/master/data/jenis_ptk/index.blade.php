@@ -40,10 +40,10 @@
                 <div class="card-body">
                     <div class="card-text">
 
-                        <div class="table-responsive">
-                            <table class="table table-hover">
+                        <div class=" table-responsive">
+                            <table class="table  table-hover">
                                 <thead>
-                                    <tr>
+                                    <tr class="bg-primary text-white">
                                         <th>No</th>
                                         <th>Name</th>
                                         <th>Keterangan</th>
