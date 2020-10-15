@@ -71,7 +71,7 @@
                                  <tr>
                                     <td>{{$no}}</td>
                                     <td>{{ $result->agama}}</td>  
-                                    <td> <a href="{{route('agama.edit',$result->id)}}" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">edit</a>
+                                    <td> <a href="{{route('agama.edit')}}" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">edit</a>
                                         <a href="" class="btn btn-danger mr-1 mb-1 waves-effect waves-light">delete</a></td>
                                   </tr>
                                 @endforeach

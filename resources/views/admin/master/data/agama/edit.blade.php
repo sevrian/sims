@@ -1,4 +1,4 @@
-@extends('admin.master.guru.index')
+@extends('admin.master.data.agama.index')
 
 @section('content')
 
@@ -7,14 +7,14 @@
        <div class="content-header-left col-md-9 col-12 mb-2">
            <div class="row breadcrumbs-top">
                <div class="col-12">
-                   <h2 class="content-header-title float-left mb-0">PTK</h2>
+                   <h2 class="content-header-title float-left mb-0">Agama</h2>
                    <div class="breadcrumb-wrapper col-12">
                        <ol class="breadcrumb">
                            <li class="breadcrumb-item"><a href="sk-layout-2-columns.html">Home</a>
                            </li>
-                           <li class="breadcrumb-item"><a href="#">PTK</a>
+                           <li class="breadcrumb-item"><a href="#">Agama</a>
                            </li>
-                           <li class="breadcrumb-item active">Jenis PTK
+                           <li class="breadcrumb-item active">Tambah Agama
                            </li>
                        </ol>
                    </div>
@@ -44,7 +44,7 @@
        </section> --}}
        <!--/ Description -->
        <!-- CSS Classes -->
-      @include('admin.master.data.jenis_ptk._form')
+      @include('admin.master.data.agama._form')
        <!--/ CSS Classes -->
   
        

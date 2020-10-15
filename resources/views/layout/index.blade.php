@@ -47,7 +47,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url ('assets/css/style.css')}}">
     <!-- END: Custom CSS-->
-
+    @stack('css')
 </head>
 <!-- END: Head-->
 
@@ -307,6 +307,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Vendor JS-->
     <script src="{{ url ('app-assets/vendors/js/vendors.min.js')}}"></script>
     <script src="{{ url ('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
+    <script src="{{ url ('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
@@ -316,8 +317,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN: Theme JS-->
     <script src="{{ url ('app-assets/js/core/app-menu.js')}}"></script>
     <script src="{{ url ('app-assets/js/core/app.js')}}"></script>
+    <script src="{{ url ('app-assets/js/scripts/extensions/sweet-alerts.js')}}"></script>
     <!-- END: Theme JS-->
-
+    @stack('scripts')
     <!-- BEGIN: Page JS-->
     <!-- END: Page JS-->
 

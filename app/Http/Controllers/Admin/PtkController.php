@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Master\Agama;
+use App\Models\Master\JenisPtk;
 
-class AgamaController extends Controller
+class PtkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class AgamaController extends Controller
      */
     public function index()
     {
-        $agamas = Agama::paginate(5);
-        return view('admin.master.data.agama.index', compact('agamas'));
+        $ptk = JenisPtk::latest()->paginate(5);
+        return view('admin.master.data.jenis_ptk.index', compact('ptk'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -26,7 +27,7 @@ class AgamaController extends Controller
      */
     public function create()
     {
-        return view('admin.master.data.agama.create');
+        return view('admin.master.data.jenis_ptk.create');
     }
 
     /**
@@ -37,12 +38,14 @@ class AgamaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'agama' => 'required|string|min:3|max:20'
+        $request->validate([
+            'jenis_ptk' => 'required|unique:jenis_ptk'
         ]);
 
-        Agama::create($data);
-        return redirect('agama');
+        JenisPtk::create($request->all());
+
+        return redirect()->route('jenis_ptk.index')
+            ->with('success', 'Data Berhasil disimpan');
     }
 
     /**
@@ -64,8 +67,7 @@ class AgamaController extends Controller
      */
     public function edit($id)
     {
-        $data = Agama::findorfail($id);
-        return view('admin.master.data.agama.edit', compact('data'));
+        //
     }
 
     /**
@@ -88,6 +90,10 @@ class AgamaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ptk = JenisPtk::findorfail($id);
+        $ptk->delete($id);
+
+        return redirect()->route('jenis_ptk.index')
+            ->with('success', 'Data Berhasil dihapus');
     }
 }

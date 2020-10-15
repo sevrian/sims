@@ -29,7 +29,7 @@ Route::resources([
     // datalain
     'agama' => 'Admin\AgamaController',
     'warga' => 'Admin\NegeraController',
-    'jenis_ptk' => 'Admin\JenisPtkController',
+    'jenis_ptk' => 'Admin\PtkController',
     'tahun_akademik' => 'Admin\TahunAkademikkController',
 
 
