@@ -46,3 +46,4 @@ Route::get('siswa', function () {
 // Route::get('kelas', function () {
 //     return view('admin.master.kelas.index');
 // });
+ 

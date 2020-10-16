@@ -13,10 +13,15 @@ class AgamaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $agamas = Agama::paginate(5);
-        return view('admin.master.data.agama.index', compact('agamas'));
+        $list_agama = Agama::all();
+        if ($request->ajax()) {
+
+            return datatables()->of($list_agama)->make(true);
+        }
+
+        return view('admin.master.data.agama.index');
     }
 
     /**
@@ -26,7 +31,7 @@ class AgamaController extends Controller
      */
     public function create()
     {
-        return view('admin.master.data.agama.create');
+        // return view('admin.master.data.agama.create');
     }
 
     /**
@@ -37,12 +42,12 @@ class AgamaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->validate([
-            'agama' => 'required|string|min:3|max:20'
-        ]);
+        // $data = $request->validate([
+        //     'agama' => 'required|string|min:3|max:20'
+        // ]);
 
-        Agama::create($data);
-        return redirect('agama');
+        // Agama::create($data);
+        // return redirect('agama');
     }
 
     /**
@@ -64,8 +69,8 @@ class AgamaController extends Controller
      */
     public function edit($id)
     {
-        $data = Agama::findorfail($id);
-        return view('admin.master.data.agama.edit', compact('data'));
+        // $data = Agama::findorfail($id);
+        // return view('admin.master.data.agama.edit', compact('data'));
     }
 
     /**

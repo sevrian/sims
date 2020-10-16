@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTahunAkademiksTable extends Migration
+class CreateTahunAkademikTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateTahunAkademiksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tahun_akademiks', function (Blueprint $table) {
+        Schema::create('tahun_akademik', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->string('nama_tahun');
             $table->string('semester');
-            $table->string('status_aktif');
-            $table->string('bulan')->nullable();
-            $table->string('createby')->nullable();
+            $table->string('aktif');
+            $table->string('bulan');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateTahunAkademiksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tahun_akademiks');
+        Schema::dropIfExists('tahun_akademik');
     }
 }

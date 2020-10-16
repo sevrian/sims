@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgamasTable extends Migration
+class CreateAgamaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateAgamasTable extends Migration
      */
     public function up()
     {
-        Schema::create('agamas', function (Blueprint $table) {
+        Schema::create('agama', function (Blueprint $table) {
             $table->id();
-            $table->string('agama');
-            $table->integer('createby')->nullable();
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateAgamasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agamas');
+        Schema::dropIfExists('agama');
     }
 }

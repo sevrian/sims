@@ -56,26 +56,17 @@
                            columns layout page requirements.</p>
                        <p>All these options can be set via following classes:</p> --}}
                        <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-hover" id="table_agama" class="display" style="width: 100%">
                             <thead>
-                              <tr>
-                                <th>No</th>
-                                <th>Name</th>
-                                <th></th>
+                              <tr class="bg-primary text-white">
+                                
+                                <th>Nama</th>
+                            
                               </tr>
                             </thead>
                             <tbody>
-                                <?php $no=0;?>
-                                @foreach ($data as $result )
-                                <?php $no++ ;?>
-                                 <tr>
-                                    <td>{{$no}}</td>
-                                    <td>{{ $result->agama}}</td>  
-                                    <td> <a href="{{route('agama.edit')}}" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">edit</a>
-                                        <a href="" class="btn btn-danger mr-1 mb-1 waves-effect waves-light">delete</a></td>
-                                  </tr>
-                                @endforeach
-                          
+                               
+                             
                             </tbody>
                           </table>
                        </div>
@@ -89,3 +80,25 @@
    </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('#table_agama').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+              
+                
+                ajax: {
+                    url: "{{ route ('agama.index')}}",
+                    type: 'GET'
+                },
+                column: [{
+                    data: 'nama'
+                }, ],
+
+            });
+        });
+    </script>
+@endpush
