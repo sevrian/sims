@@ -1,5 +1,4 @@
 @extends('admin.matapelajaran.kelompokmapel.index')
-
 @section('content')
 <div class="content-wrapper">
    <div class="content-header row">

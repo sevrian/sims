@@ -24,47 +24,19 @@
        </div>
        <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
         @if($setting->tambah['status'])
-          <a href="javascript:void(0)" url="{{$setting->tambah['url']}}" onclick="add(this)" type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
+          <a href="{{$setting->tambah['url']}}" type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
         @endif
        </div>
    </div>
    <div class="content-body">
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+        @endif    
        <!-- CSS Classes -->
        <div id="tampildata">
-       <section id="css-classes" class="card">
-           <div class="card-header">
-               <h4 class="card-title">{{ucfirst($setting->subheadline)}}</h4>
-           </div>
-           <div class="card-content">
-               <div class="card-body">
-                   <div class="card-text">
-                       <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>NIP</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>123123123123</td>
-                                <td>08125634454</td>
-                                <td>jl.damai 35</td>
-                              </tr>
-                              
-                            </tbody>
-                          </table>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section>
+        @yield('form')
        </div>
        <!--/ CSS Classes -->     
    </div>

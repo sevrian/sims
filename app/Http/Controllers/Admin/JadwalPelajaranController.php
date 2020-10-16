@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class JadwalPelajaranController extends Controller
 {
@@ -32,7 +33,7 @@ class JadwalPelajaranController extends Controller
         $data=[
             'setting'=>$this->setting(),
         ]; 
-        return view('admin.matapelajaran.jadwal.index',$data);
+        return view('admin.master.matapelajaran.jadwal.index',$data);
     }
 
     /**
@@ -45,7 +46,7 @@ class JadwalPelajaranController extends Controller
         $data=[
             'setting'=>$this->setting(),
         ];
-        return view('admin.matapelajaran.jadwal._form',$data);
+        return view('admin.master.matapelajaran.jadwal._form',$data);
     }
 
     /**
