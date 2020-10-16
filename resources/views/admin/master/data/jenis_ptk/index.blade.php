@@ -44,7 +44,7 @@
                         <div class=" table-responsive">
                             <table class="table  table-hover">
                                 <thead>
-                                    <tr class="bg-primary text-white">
+                                    <tr class="table-active">
                                         <th>No</th>
                                         <th>Name</th>
                                         <th>Keterangan</th>

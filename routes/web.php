@@ -24,7 +24,7 @@ Route::get('/admin', function () {
 Route::resources([
     'guru' => 'Admin\MasterGuruController',
     'kelompok_mapel' => 'Admin\KelompokMapelController',
-    'mapel' => 'Admin\MapelController',
+    'mapel' => 'Admin\MataPelajaranController',
     'jadwal_pelajaran' => 'Admin\JadwalPelajaranController',
     // datalain
     'agama' => 'Admin\AgamaController',
@@ -46,4 +46,3 @@ Route::get('siswa', function () {
 // Route::get('kelas', function () {
 //     return view('admin.master.kelas.index');
 // });
- 
