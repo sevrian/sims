@@ -34,11 +34,11 @@
             </li>
             <li class=" nav-item"><a href="#"><i class="feather icon-grid"></i><span class="menu-title"
                         data-i18n="Starter kit">Data Mata Pelajaran</span></a>
-                <ul class="menu-content">
-                    <li class="{{ Request::is('kelompok_mapel')?'active':''}}"><a
-                            href="{{ url ('kelompok_mapel')}}"><i></i><span class="menu-item"
-                                data-i18n="2 columns">Kelompok Pelajaran</a>
-                    </li>
+                <ul class="menu-content"> 
+                    <li class="{{Request::is(isset($setting->url) ? $setting->url:'kelompok_mapel')?'active':''}}"><a
+                        href="{{ url ('kelompok_mapel')}}"><i></i><span class="menu-item"
+                        data-i18n="2 columns">Kelompok Pelajaran</a>
+                    </li>                   
                     <li class="{{ Request::is('mapel')?'active':''}}"><a href="{{ url ('mapel')}}"><i></i><span
                                 class="menu-item" data-i18n="Fixed navbar">Mata Pelajaran</span></a>
                     </li>

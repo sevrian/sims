@@ -23,6 +23,7 @@ class MapelController extends Controller
             'tambah'=>['status'=>true,'url'=>route('mapel.create')],
             'edit'=>false,
             'delete'=>false,
+            'simpan'=>route('mapel.store'),
         ];
         return (object)$setting;
 
@@ -32,7 +33,7 @@ class MapelController extends Controller
         $data=[
             'setting'=>$this->setting(),
         ];        
-        return view('admin.matapelajaran.mapel.index',$data);
+        return view('admin.master.matapelajaran.mapel.index',$data);
     }
 
     /**
@@ -45,7 +46,7 @@ class MapelController extends Controller
         $data=[
             'setting'=>$this->setting(),
         ];
-        return view('admin.matapelajaran.mapel._form',$data);
+        return view('admin.master.matapelajaran.mapel._form',$data);
     }
 
     /**
@@ -56,7 +57,14 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator=Validator::make($request->all(),[
+            'nama'=>'required',
+            'alamat'=>'required',
+            'no_hp'=>'required',
+            'departemen_id'=>'required',
+
+        ]);
+        // if($validator->fails()){
     }
 
     /**
