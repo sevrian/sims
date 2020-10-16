@@ -49,4 +49,12 @@
       //LAOD ANOTHER FUNCTION
     });
   }
+  hapus=function(btn){
+    var param=$(btn).attr('id')
+    var stat=confirm('Data akan dihapus ?')
+    var id='#hapus'+param
+    if(stat){
+      $(id).submit();
+    }
+  }
 </script>
