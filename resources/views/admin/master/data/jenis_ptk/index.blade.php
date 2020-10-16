@@ -27,6 +27,7 @@
 
     </div>
     <div class="content-body">
+
         @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -47,41 +48,42 @@
                                         <th>No</th>
                                         <th>Name</th>
                                         <th>Keterangan</th>
-                                       <th style="width:400px">Aksi</th>
+                                        <th style="width:400px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                    @foreach ($ptk as $hasil)
+
+                                    @foreach ($ptk ?? '' as $hasil)
                                     <tr>
 
-                                        <td scope="row">{{++$i}}</td>
+                                        <td>{{ ++$i }}</td>
                                         <td>{{ $hasil->jenis_ptk}}</td>
                                         <td>{{ $hasil->keterangan}}</td>
                                         <td>
-                                          <form action="{{ route('jenis_ptk.destroy',$hasil->id) }}" method="POST">
-                             
-                                             <a class="btn btn-primary btn-sm" href="{{ route('jenis_ptk.edit',$hasil->id) }}">Edit</a>
-                            
-                                             @csrf
-                                             @method('DELETE')
-                               
-                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                         </form>
+                                            <form action="{{ route('jenis_ptk.destroy',$hasil->id) }}" method="POST">
+
+                                                <a class="btn btn-primary btn-sm"
+                                                    href="{{ route('jenis_ptk.edit',$hasil->id) }}">Edit</a>
+
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
-                                    
+
                                     @endforeach
-                                  
+
                                 </tbody>
                             </table>
-                           
+                            {!! $ptk ?? ''->links() !!}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        {!! $ptk->links() !!}
+     
         <!--/ CSS Classes -->
 
 

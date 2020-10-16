@@ -67,7 +67,9 @@ class PtkController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ptk = JenisPtk::findorfail($id);
+
+        return view('admin.master.data.jenis_ptk.edit', compact('ptk'));
     }
 
     /**
@@ -78,8 +80,18 @@ class PtkController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+
     {
-        //
+        $request->validate([
+            'jenis_ptk' => 'required'
+
+        ]);
+
+        $ptk = JenisPtk::findorfail($id);
+        $ptk->update($request->all());
+
+        return redirect()->route('jenis_ptk.index')
+            ->with('success', 'Data Berhasil diubah'); //
     }
 
     /**
