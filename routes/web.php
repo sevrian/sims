@@ -31,6 +31,7 @@ Route::resources([
     'negara' => 'Admin\NegaraController',
     'jenis_ptk' => 'Admin\PtkController',
     'tahun_akademik' => 'Admin\TahunAkademikkController',
+    'profil_sekolah' => 'Admin\ProfilSekolahController',
 
 
 ]);
