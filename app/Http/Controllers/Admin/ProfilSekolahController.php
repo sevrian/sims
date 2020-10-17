@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class AdminProfilSekolahController extends Controller
+class ProfilSekolahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class AdminProfilSekolahController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.master.profilsekolah.index');
     }
 
     /**
