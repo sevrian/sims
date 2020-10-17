@@ -99,10 +99,5 @@ class NegaraController extends Controller
      */
     public function destroy($id)
     {
-        $negara = Negara::findorfail($id);
-        $negara->delete($id);
-
-        return redirect()->route('negara.index')
-            ->with('success', 'Data Berhasil dihapus');
     }
 }
