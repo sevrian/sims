@@ -35,14 +35,18 @@
             <li class=" nav-item"><a href="#"><i class="feather icon-grid"></i><span class="menu-title"
                         data-i18n="Starter kit">Data Mata Pelajaran</span></a>
                 <ul class="menu-content"> 
-                    <li class="{{Request::is(isset($setting->url) ? $setting->url:'kelompok_mapel')?'active':''}}"><a
+                    {{-- <li class="{{Request::is(isset($setting->url) ? $setting->url:'kelompok_mapel')?'active':''}}"><a
                         href="{{ url ('kelompok_mapel')}}"><i></i><span class="menu-item"
                         data-i18n="2 columns">Kelompok Pelajaran</a>
-                    </li>                   
-                    <li class="{{ Request::is('mapel')?'active':''}}"><a href="{{ url ('mapel')}}"><i></i><span
+                    </li>                    --}}
+                    <li class="{{isset($setting->url) ? ($setting->url=='kelompok_mapel' ? 'active':''):( Request::is('kelompok_mapel')?'active':'')}}"><a
+                        href="{{ url ('kelompok_mapel')}}"><i></i><span class="menu-item"
+                        data-i18n="2 columns">Kelompok Pelajaran</a>
+                    </li>
+                    <li class="{{isset($setting->url) ? ($setting->url=='mapel' ? 'active':''):( Request::is('mapel')?'active':'')}}"><a href="{{ url ('mapel')}}"><i></i><span
                                 class="menu-item" data-i18n="Fixed navbar">Mata Pelajaran</span></a>
                     </li>
-                    <li class="{{ Request::is('jadwal_pelajaran')?'active':''}}"><a
+                    <li class="{{isset($setting->url) ? ($setting->url=='jadwal' ? 'active':''):( Request::is('jadwal_pelajaran')?'active':'')}}"><a
                             href="{{ url ('jadwal_pelajaran')}}"><i></i><span class="menu-item"
                                 data-i18n="Floating navbar">Jadwal Pelajaran</span></a>
                     </li>

@@ -30,7 +30,7 @@ class KelompokMapelController extends Controller
         $url='kelompok_mapel';
         $headline='Kelompok Mata Pelajaran';
         if($param) {
-            $url=$param['url'];
+            $url=$url;
             if(isset($param['headline'])) $headline=$param['headline'];
         }    
         $setting=[

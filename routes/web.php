@@ -24,7 +24,7 @@ Route::get('/admin', function () {
 Route::resources([
     'guru' => 'Admin\MasterGuruController',
     'kelompok_mapel' => 'Admin\KelompokMapelController',
-    'mapel' => 'Admin\MataPelajaranController',
+    'mapel' => 'Admin\MapelController',
     'jadwal_pelajaran' => 'Admin\JadwalPelajaranController',
     // datalain
     'agama' => 'Admin\AgamaController',

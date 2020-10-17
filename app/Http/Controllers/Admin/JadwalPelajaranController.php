@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+use App\Models\Master\Jadwal AS model;
+use App\Models\Master\MataPelajaran AS mapel;
+
 class JadwalPelajaranController extends Controller
 {
     /**
@@ -13,27 +16,60 @@ class JadwalPelajaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    private function setting(){
+    protected $defaultroute;
+    protected $defaulturl;
+    protected $view;
+    public function __construct()
+    {
+        $this->defaultroute=route('jadwal_pelajaran.index');
+        $this->view='admin.master.matapelajaran.jadwal';
+        $this->defaulturl='jadwal_pelajaran';
+    }    
+    private function setting($param=''){
+        $url='jadwal';
+        $headline='Mata Pelajaran';
+        if($param) {
+            $url=$url;
+            if(isset($param['headline'])) $headline=$param['headline'];
+        }    
         $setting=[
-            'headline'=>'Jadwal',
+            'headline'=>$headline,
             'subheadline'=>'menampilkan jadwal pelajaran',
             'breadcrumb'=>[['label'=>'Home','url'=>url('/'),'aktif'=>false],
-                           ['label'=>'Data Mapel','url'=>url('jadwal_pelajaran'),'aktif'=>false],
-                           ['label'=>'Mata Pelajaran','url'=>url('jadwal_pelajaran'),'aktif'=>true], 
+                           ['label'=>'Data Mapel','url'=>url($this->defaulturl),'aktif'=>false],
+                           ['label'=>'Jadwal','url'=>url($this->defaulturl),'aktif'=>false],
+                           ['label'=>'Jadwal','url'=>url($this->defaulturl),'aktif'=>true], 
             ],
-            'tambah'=>['status'=>true,'url'=>route('jadwal_pelajaran.create')],
-            'edit'=>false,
-            'delete'=>false,
+            'tambah'=>['status'=>true,'url'=>route($this->defaulturl.'.create')],
+            'edit'=>['status'=>true,'url'=>$this->defaulturl.'.edit'],
+            'update'=>['status'=>true,'url'=>$this->defaulturl.'.update'],
+            'delete'=>['status'=>true,'url'=>$this->defaulturl.'.destroy'],
+            'simpan'=>route($this->defaulturl.'.store'),
+            'view'=>$this->view,
+            'url'=>$url,
         ];
         return (object)$setting;
+    }
+    private function validasi($request){
+        $validator=Validator::make($request->all(),[
+            'jam'=>'required',
+            'hari'=>'required',
+            'status'=>'required',
 
-    }       
+        ]);       
+        return $validator; 
+    }
     public function index()
     {
+        $param=[
+            'url'=>'mapel',
+        ];
         $data=[
-            'setting'=>$this->setting(),
-        ]; 
-        return view('admin.master.matapelajaran.jadwal.index',$data);
+            'setting'=>$this->setting($param),
+            'data'=>Model::all(),
+            
+        ];
+        return view($this->view.'.tabel',$data);
     }
 
     /**
@@ -43,12 +79,16 @@ class JadwalPelajaranController extends Controller
      */
     public function create()
     {
+        $param=[
+            'url'=>$this->defaulturl.'/create',
+            'headline'=>'Tambah Data',
+        ];        
         $data=[
-            'setting'=>$this->setting(),
+            'setting'=>$this->setting($param),
+            'mapel'=>Mapel::all(),
         ];
-        return view('admin.master.matapelajaran.jadwal._form',$data);
+        return view($this->view.'.add',$data);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -57,9 +97,21 @@ class JadwalPelajaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi=$this->validasi($request);
+        if($validasi->fails()){
+            return redirect(route($this->defaulturl.'.create'))
+            ->withErrors($validasi)
+            ->withInput();
+        }else{
+            $result=Model::create([
+                'mapel_id'=>$request->input('mapel_id'),
+                'jam'=>$request->input('jam'),
+                'hari'=>ucfirst($request->input('hari')),
+                'status'=>$request->input('status'),             
+            ]);
+            return redirect($this->defaultroute)->with('success', 'Data Berhasil disimpan');  
+        }      
     }
-
     /**
      * Display the specified resource.
      *
@@ -79,7 +131,18 @@ class JadwalPelajaranController extends Controller
      */
     public function edit($id)
     {
-        //
+        $param=[
+            'url'=>$this->defaulturl.'/'.$id.'/edit',
+            'headline'=>'Edit Data',
+        ];        
+        $result=Model::find($id);
+        $data=[
+            'setting'=>$this->setting($param),
+            'data'=>$result,
+            'mapel'=>Mapel::all(),
+        
+        ];
+        return view($this->view.'.edit',$data);       
     }
 
     /**
@@ -91,7 +154,20 @@ class JadwalPelajaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validasi=$this->validasi($request);
+        if($validasi->fails()){
+            return redirect(route($this->defaulturl.'.edit',$id))
+            ->withErrors($validasi)
+            ->withInput();
+        }else{
+            $result=Model::where('id',$id)->update([
+                'mapel_id'=>$request->input('mapel_id'),
+                'jam'=>$request->input('jam'),
+                'hari'=>ucfirst($request->input('hari')),
+                'status'=>$request->input('status'),         
+            ]);            
+            return redirect($this->defaultroute)->with('success', 'Data Berhasil Di Update');  
+        }  
     }
 
     /**
@@ -102,6 +178,8 @@ class JadwalPelajaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete=Model::whereId($id)->first();
+        $delete->delete();
+        return redirect($this->defaultroute)->with('success', 'Data Berhasil hapus');   
     }
 }
