@@ -40,7 +40,7 @@
                                 <div class="users-view-image">
                                     <img src="../../../app-assets/images/portrait/small/avatar-s-12.jpg" class="users-avatar-shadow w-100 rounded mb-2 pr-2 ml-1" alt="avatar">
                                 </div>
-                                <div class="col-12 col-sm-9 col-md-6 col-lg-5">
+                                <div class="col-12 col-sm-9 col-md-6">
                                     <table>
                                         <tr>
                                             <td class="font-weight-bold">Nama Sekolah</td>
@@ -100,21 +100,21 @@
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Kelurahan</td>
-                                    <td>https://rowboat.com/insititious/Angelo
+                                    <td>Catur Tunggal
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Kecamatan</td>
-                                    <td>English, Arabic
+                                    <td>Depok
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Kabupaten </td>
-                                    <td>female</td>
+                                    <td>Sleman</td>
                                 </tr>
                                 <tr>
                                     <td class="font-weight-bold">Provinsi</td>
-                                    <td>email, message, phone
+                                    <td>Yogyakarta
                                     </td>
                                 </tr>
                             </table>
