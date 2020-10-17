@@ -7,14 +7,14 @@
         <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h2 class="content-header-title float-left mb-0">PTK</h2>
+                    <h2 class="content-header-title float-left mb-0">Warga Negara</h2>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="sk-layout-2-columns.html">Home</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">PTK</a>
+                            <li class="breadcrumb-item"><a href="#">Negara</a>
                             </li>
-                            <li class="breadcrumb-item active">Tambah PTK
+                            <li class="breadcrumb-item active">Tambah Kewarganegaraan
                             </li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
         @endif
         <section id="css-classes" class="card">
             <div class="card-header">
-                <h4 class="card-title">Form PTK</h4>
+                <h4 class="card-title">Form Tambah Negara</h4>
             </div>
             <div class="card-content">
                 <div class="card-body">
@@ -41,17 +41,17 @@
                            
                             <div class="card-content">
                                 <div class="card-body">
-                                    <form class="form form-horizontal" action="{{ route('jenis_ptk.store')}}" method="POST">
+                                    <form class="form form-horizontal" action="{{ route('negara.store')}}" method="POST">
                                         @csrf 
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
-                                                            <span> Jenis PTK</span>
+                                                            <span> Nama Negara</span>
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <input type="text" id="jenis_ptk" class="form-control" name="jenis_ptk" placeholder="Jenis PTK" >
+                                                            <input type="text" class="form-control" name="nama_negara" placeholder="Nama Negara" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -67,7 +67,7 @@
                                                 </div>
                                               
                                                 <div class="col-md-8 offset-md-10">
-                                                    <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                    <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Simpan</button>
                                                     
                                                 </div>
                                             </div>

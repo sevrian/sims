@@ -26,7 +26,7 @@ class NegaraController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.master.data.negara.create');
     }
 
     /**
@@ -37,7 +37,14 @@ class NegaraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_negara' => 'required|unique:negara'
+        ]);
+
+        Negara::create($request->all());
+
+        return redirect()->route('negara.index')
+            ->with('success', 'Data Berhasil disimpan');
     }
 
     /**
@@ -59,7 +66,9 @@ class NegaraController extends Controller
      */
     public function edit($id)
     {
-        //
+        $negara = Negara::findorfail($id);
+
+        return view('admin.master.data.negara.edit');
     }
 
     /**
@@ -71,7 +80,14 @@ class NegaraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_negara' => 'required'
+        ]);
+        $negara = Negara::findorfail($id);
+        $negara->update($request->all());
+
+        return redirect()->route('negara.index')
+            ->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -82,6 +98,10 @@ class NegaraController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $negara = Negara::findorfail($id);
+        $negara->delete($id);
+
+        return redirect()->route('negara.index')
+            ->with('success', 'Data Berhasil dihapus');
     }
 }
