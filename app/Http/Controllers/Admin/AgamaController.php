@@ -15,13 +15,9 @@ class AgamaController extends Controller
      */
     public function index(Request $request)
     {
-        $list_agama = Agama::all();
-        if ($request->ajax()) {
-
-            return datatables()->of($list_agama)->make(true);
-        }
-
-        return view('admin.master.data.agama.index');
+        $agama = Agama::latest()->paginate(5);
+        return view('admin.master.data.agama.index', compact('agama'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -31,7 +27,7 @@ class AgamaController extends Controller
      */
     public function create()
     {
-        // return view('admin.master.data.agama.create');
+        return view('admin.master.data.agama.create');
     }
 
     /**
@@ -42,12 +38,14 @@ class AgamaController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $request->validate([
-        //     'agama' => 'required|string|min:3|max:20'
-        // ]);
+        $request->validate([
+            'nama' => 'required|unique:agama'
+        ]);
 
-        // Agama::create($data);
-        // return redirect('agama');
+        Agama::create($request->all());
+
+        return redirect()->route('agama.index')
+            ->with('success', 'Data Berhasil disimpan');
     }
 
     /**
@@ -58,7 +56,6 @@ class AgamaController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -69,8 +66,8 @@ class AgamaController extends Controller
      */
     public function edit($id)
     {
-        // $data = Agama::findorfail($id);
-        // return view('admin.master.data.agama.edit', compact('data'));
+        $agama = Agama::findorfail($id);
+        return view('admin.master.data.agama.edit', compact('agama'));
     }
 
     /**
@@ -82,7 +79,14 @@ class AgamaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required'
+        ]);
+        $agama = Agama::findorfail($id);
+        $agama->update($request->all());
+
+        return redirect()->route('agama.index')
+            ->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -93,6 +97,10 @@ class AgamaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agama = Agama::findorfail($id);
+        $agama->delete($id);
+
+        return redirect()->route('agama.index')
+            ->with('success', 'Data Berhasil dihapus');
     }
 }
