@@ -147,10 +147,10 @@
                 <ul class="menu-content">
                     <li class="{{ Request::is('agama')?'active':''}}"><a
                             href="{{ url ('agama')}}"><i></i><span class="menu-item"
-                                data-i18n="2 columns">agama</a>
+                                data-i18n="2 columns">Agama</a>
                     </li>
-                    <li class="{{ Request::is('data_warga')?'active':''}}"><a
-                            href="{{ url ('data_warga')}}"><i></i><span class="menu-item"
+                    <li class="{{ Request::is('negara')?'active':''}}"><a
+                            href="{{ url ('negara')}}"><i></i><span class="menu-item"
                                 data-i18n="Fixed navbar">Kewarganegraan</span></a>
                     </li>
                     <li class="{{ Request::is('jenis_ptk')?'active':''}}"><a
