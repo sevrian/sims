@@ -6,14 +6,14 @@
         <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h2 class="content-header-title float-left mb-0">PTK</h2>
+                    <h2 class="content-header-title float-left mb-0">Warga Negara</h2>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="sk-layout-2-columns.html">Home</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">PTK</a>
+                            <li class="breadcrumb-item"><a href="#">Negara</a>
                             </li>
-                            <li class="breadcrumb-item active">Daftar PTK
+                            <li class="breadcrumb-item active">Daftar Kewarganegaraan
                             </li>
                         </ol>
                     </div>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-            <a href="{{route('jenis_ptk.create')}}" type="button"
+            <a href="{{route('negara.create')}}" type="button"
                 class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
         </div>
 
@@ -46,24 +46,24 @@
                                 <thead>
                                     <tr class="table-active">
                                         <th>No</th>
-                                        <th>Name</th>
+                                        <th>Nama Negara</th>
                                         <th>Keterangan</th>
                                         <th style="width:400px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($ptk ?? '' as $hasil)
+                                    @foreach ($negara as $hasil)
                                     <tr>
 
                                         <td>{{ ++$i }}</td>
-                                        <td>{{ $hasil->jenis_ptk}}</td>
+                                        <td>{{ $hasil->nama_negara}}</td>
                                         <td>{{ $hasil->keterangan}}</td>
                                         <td>
-                                            <form action="{{ route('jenis_ptk.destroy',$hasil->id) }}" method="POST">
+                                            <form action="{{ route('negara.destroy',$hasil->id) }}" method="POST">
 
                                                 <a class="btn btn-primary btn-sm"
-                                                    href="{{ route('jenis_ptk.edit',$hasil->id) }}">Edit</a>
+                                                    href="{{ route('negara.edit',$hasil->id) }}">Edit</a>
 
                                                 @csrf
                                                 @method('DELETE')
@@ -77,7 +77,7 @@
 
                                 </tbody>
                             </table>
-                            {!! $ptk ?? ''->links() !!}
+                            {!! $negara ?? ''->links() !!}
                         </div>
                     </div>
                 </div>

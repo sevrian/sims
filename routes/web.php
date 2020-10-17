@@ -28,7 +28,7 @@ Route::resources([
     'jadwal_pelajaran' => 'Admin\JadwalPelajaranController',
     // datalain
     'agama' => 'Admin\AgamaController',
-    'warga' => 'Admin\NegeraController',
+    'negara' => 'Admin\NegaraController',
     'jenis_ptk' => 'Admin\PtkController',
     'tahun_akademik' => 'Admin\TahunAkademikkController',
 

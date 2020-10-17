@@ -88,7 +88,7 @@
                 processing: true,
                 serverSide: true,
                 responsive: true,
-              
+                data: 'id',
                 
                 ajax: {
                     url: "{{ route ('agama.index')}}",
