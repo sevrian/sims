@@ -21,6 +21,7 @@
                 </div>
             </div>
         </div>
+inde
     </div>
     <div class="content-body">
         @if ($errors->any())
