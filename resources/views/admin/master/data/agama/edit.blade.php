@@ -21,7 +21,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="content-body">
         @if ($errors->any())
@@ -41,7 +40,7 @@
                         
                          <div class="card-content">
                              <div class="card-body">
-                                 <form class="form form-horizontal" action="{{ route('agama.update',$agama->id)}}" method="POST">
+                                 <form class="form form-horizontal" action="{{ route('agama.update',($agama->id))}}" method="POST">
                                      @csrf 
                                      @method('PUT')
                                      <div class="form-body">

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Master\Agama;
+use Illuminate\Support\Facades\Crypt;
+
 
 class AgamaController extends Controller
 {
@@ -66,7 +68,9 @@ class AgamaController extends Controller
      */
     public function edit($id)
     {
+
         $agama = Agama::findorfail($id);
+
         return view('admin.master.data.agama.edit', compact('agama'));
     }
 
