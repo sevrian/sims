@@ -35,7 +35,7 @@
         @endif
         <section id="css-classes" class="card">
             <div class="card-header">
-                <h4 class="card-title">Daftar Jenis PTK</h4>
+                <h4 class="card-title">Daftar Negara</h4>
             </div>
             <div class="card-content">
                 <div class="card-body">

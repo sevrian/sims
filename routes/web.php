@@ -26,14 +26,11 @@ Route::resources([
     'kelompok_mapel' => 'Admin\KelompokMapelController',
     'mapel' => 'Admin\MapelController',
     'jadwal_pelajaran' => 'Admin\JadwalPelajaranController',
-    // datalain
     'agama' => 'Admin\AgamaController',
     'negara' => 'Admin\NegaraController',
     'jenis_ptk' => 'Admin\PtkController',
-    'tahun_akademik' => 'Admin\TahunAkademikkController',
+    'tahun_akademik' => 'Admin\TahunAkademikController',
     'profil_sekolah' => 'Admin\ProfilSekolahController',
-
-
 ]);
 
 Route::get('siswa', function () {

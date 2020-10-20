@@ -13,7 +13,7 @@ class NegaraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $negara = Negara::latest()->paginate(5);
         return view('admin.master.data.negara.index', compact('negara'))
@@ -69,7 +69,7 @@ class NegaraController extends Controller
     {
         $negara = Negara::findorfail($id);
 
-        return view('admin.master.data.negara.edit');
+        return view('admin.master.data.negara.edit', compact('negara'));
     }
 
     /**
