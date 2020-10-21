@@ -14,9 +14,16 @@ class MasterGuruController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        $query = Guru::all();
+        if ($request->ajax()) {
+
+            return datatables()->of($query)->make(true);
+        }
         return view('admin.master.guru.index');
+        // return redirect()->route('guru.index', compact('data'));
     }
 
     /**
@@ -37,10 +44,12 @@ class MasterGuruController extends Controller
      */
     public function store(Request $request)
     {
-        Item::updateOrCreate(['id' => $request->Item_id],
-                ['name' => $request->name, 'description' => $request->description]);        
-   
-        return response()->json(['success'=>'Item saved successfully.']);
+        Item::updateOrCreate(
+            ['id' => $request->Item_id],
+            ['name' => $request->name, 'description' => $request->description]
+        );
+
+        return response()->json(['success' => 'Item saved successfully.']);
     }
 
     /**
@@ -51,7 +60,6 @@ class MasterGuruController extends Controller
      */
     public function show($id)
     {
-       
     }
 
     /**
@@ -87,7 +95,7 @@ class MasterGuruController extends Controller
     public function destroy($id)
     {
         Item::find($id)->delete();
-     
-        return response()->json(['success'=>'Item deleted successfully.']);
+
+        return response()->json(['success' => 'Item deleted successfully.']);
     }
 }

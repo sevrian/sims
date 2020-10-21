@@ -52,26 +52,17 @@
            <div class="card-content">
                <div class="card-body">
                    <div class="card-text">
-                      
                        <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-striped table-bordered table-sm" id="table-guru">
                             <thead>
                               <tr>
-                                <th>#</th>
+                                
                                 <th>Name</th>
-                                <th>NIP</th>
-                                <th>Telp</th>
-                                <th>Alamat</th>
+                               
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>123123123123</td>
-                                <td>08125634454</td>
-                                <td>jl.damai 35</td>
-                              </tr>
+                             
                               
                             </tbody>
                           </table>
@@ -86,3 +77,23 @@
    </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function() {
+    $('#table-guru').DataTable({
+        serverSide: true,
+        ajax : {
+            url:"{{ route ('guru.index')}}",
+            type: 'GET'
+        },
+        columns:[
+            { data : 'nama_guru'},
+        ],
+        order:[[0,'asc']]
+    });
+} );
+
+</script>
+    
+@endpush
