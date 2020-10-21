@@ -17,6 +17,7 @@ $factory->define(Guru::class, function (Faker $faker) {
         'temapat_lahir' => $faker->city,
         'jenis_kelamin' => $faker->randomElement($array = array('Pria', 'Wanita')),
         'nik' => $faker->randomDigitNotNull,
+        'telepon' => $faker->phoneNumber,
         'nuptk' => $faker->randomNumber,
         'alamat' => $faker->address,
         'email' => $faker->email,

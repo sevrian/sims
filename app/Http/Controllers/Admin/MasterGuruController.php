@@ -24,9 +24,7 @@ class MasterGuruController extends Controller
         }
         return view('admin.master.guru.index');
         // return redirect()->route('guru.index', compact('data'));
-    }
-
-    /**
+    }    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

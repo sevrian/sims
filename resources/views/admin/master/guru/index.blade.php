@@ -57,8 +57,10 @@
                             <thead>
                               <tr>
                                 
-                                <th>Name</th>
-                               
+                               <th>Name</th>
+                               <th>Alamat</th>
+                               <th>Telepon</th>
+                               <th>Status</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -89,6 +91,11 @@
         },
         columns:[
             { data : 'nama_guru'},
+            { data : 'alamat'},
+            { data : 'telepon'},
+            { data : 'status_aktif'},
+            
+
         ],
         order:[[0,'asc']]
     });

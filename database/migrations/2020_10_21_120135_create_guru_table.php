@@ -26,11 +26,11 @@ class CreateGuruTable extends Migration
             $table->string('jenis_kelamin');
             $table->string('nik')->nullable();
             $table->string('nuptk')->nullable();
+            $table->string('telepon')->nullable();
             $table->string('alamat');
             $table->string('email');
             $table->string('status_aktif');
             $table->string('foto')->nullable();
-
             $table->timestamps();
         });
     }
