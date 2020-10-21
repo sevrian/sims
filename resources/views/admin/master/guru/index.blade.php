@@ -52,9 +52,7 @@
            <div class="card-content">
                <div class="card-body">
                    <div class="card-text">
-                       <p>This table contains all classes related to the 2 columns layout. This is a custom layout classes for 2
-                           columns layout page requirements.</p>
-                       <p>All these options can be set via following classes:</p>
+                      
                        <div class="table-responsive">
                         <table class="table">
                             <thead>

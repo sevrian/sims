@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Master\Guru;
+use App\Models\Master\Agama;
 
 class MasterGuruController extends Controller
 {
@@ -36,7 +37,10 @@ class MasterGuruController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Item::updateOrCreate(['id' => $request->Item_id],
+                ['name' => $request->name, 'description' => $request->description]);        
+   
+        return response()->json(['success'=>'Item saved successfully.']);
     }
 
     /**
@@ -47,7 +51,7 @@ class MasterGuruController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -58,7 +62,8 @@ class MasterGuruController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = Item::find($id);
+        return response()->json($item);
     }
 
     /**
@@ -81,6 +86,8 @@ class MasterGuruController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Item::find($id)->delete();
+     
+        return response()->json(['success'=>'Item deleted successfully.']);
     }
 }
