@@ -47,14 +47,36 @@
                                     <tr>
                                         <th width="5%">No</th>
                                         <th>Name</th>
-                                        <th>Descriptions</th>
-                                        <th width="15%">Action</th>
+                                       <th>aksi</th>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                    @foreach ($agama as $hasil)
+                                    <tr>
+
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $hasil->nama}}</td>
+                                        <td>
+                                            <form action="{{ route('agama.destroy',$hasil->id) }}" method="POST">
+
+                                                <a class="btn btn-primary btn-sm"
+                                                    href="{{ route('agama.edit',$hasil->id) }}">Edit</a>
+
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+
+                                    @endforeach
+
                                 </tbody>
                             </table>
-                         
+                            {!! $agama->links() !!}
                         </div>
                     </div>
                 </div>

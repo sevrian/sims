@@ -1,6 +1,7 @@
 @extends('layout.index')
 
 @section('content')
+@include('admin.master.guru._form')
 <div class="content-wrapper">
    <div class="content-header row">
        <div class="content-header-left col-md-9 col-12 mb-2">
@@ -21,9 +22,10 @@
            </div>
        </div>
        <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-        <a href="{{route('guru.create')}}" type="button" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
+        <a href="javascript:void(0)" type="button" id="create" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
        </div>
    </div>
+  
    <div class="content-body">
     
        <section id="css-classes" class="card">
@@ -81,6 +83,15 @@
         order:[[0,'asc']]
     });
 } );
+//TOMBOL TAMBAH DATA
+        //jika tombol-tambah diklik maka
+        $('#create').click(function () {
+            $('#button-simpan').val("create-post"); //valuenya menjadi create-post
+            $('#id').val(''); //valuenya menjadi kosong
+            $('#form-tambah-edit').trigger("reset"); //mereset semua input dll didalamnya
+            $('#modal-judul').html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
+            $('.tambah-edit-modal').modal('show'); //modal tampil
+        });
 
 </script>
     

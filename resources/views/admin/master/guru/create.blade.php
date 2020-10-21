@@ -11,14 +11,14 @@
        <div class="content-header-left col-md-9 col-12 mb-2">
            <div class="row breadcrumbs-top">
                <div class="col-12">
-                   <h2 class="content-header-title float-left mb-0">PTK</h2>
+                   <h2 class="content-header-title float-left mb-0">Guru</h2>
                    <div class="breadcrumb-wrapper col-12">
                        <ol class="breadcrumb">
                            <li class="breadcrumb-item"><a href="sk-layout-2-columns.html">Home</a>
                            </li>
-                           <li class="breadcrumb-item"><a href="#">PTK</a>
+                           <li class="breadcrumb-item"><a href="#">Guru</a>
                            </li>
-                           <li class="breadcrumb-item active">Jenis PTK
+                           <li class="breadcrumb-item active">Form Guru
                            </li>
                        </ol>
                    </div>
@@ -30,6 +30,11 @@
    <div class="content-body">
   
     <section id="css-classes" class="card">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Maaf!</strong> Data yang anda masukan sudah tepakai.<br><br>
+        </div>
+        @endif
         <div class="card-header">
             <h4 class="card-title">Form Guru</h4>
         </div>
@@ -41,7 +46,8 @@
                        
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal">
+                                <form class="form form-horizontal" action="{{ route('guru.store')}}" method="POST">
+                                    @csrf 
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-12">
@@ -110,7 +116,7 @@
                                                         <span>Tanggal Lahir</span>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="text" class="form-control pickadate-months-year picker__input--active" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                                                        <input type="text" class="form-control pickadate-months-year picker__input picker__input--active" name="tanggal_lahir" placeholder="Tanggal Lahir">
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,7 +183,7 @@
                                                         <span>Email</span>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="password"  class="form-control" name="email" placeholder="Email">
+                                                        <input type="email"  class="form-control" name="email" placeholder="Email">
                                                     </div>
                                                 </div>
                                             </div>
@@ -240,7 +246,7 @@
         </div>
      </section>
        <!--/ CSS Classes -->
-  
+  </section>
        
    </div>
 </div>
@@ -248,13 +254,20 @@
 @push('js')
 <script src="{{ url ('app-assets/vendors/js/pickers/pickadate/picker.js')}}"></script>
 <script src="{{ url ('app-assets/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
-<script src="{{ url ('app-assets/vendors/js/pickers/pickadate/legacy.js')}}""></script>
-<script src="{{ url ('app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js')}}"></script>
+<script src="{{ url ('app-assets/vendors/js/pickers/pickadate/legacy.js')}}"></script>
+
 @endpush
 @push('scripts')
-<script>
-    $('.datepicker').pickadate({
-        selectYear: 'picker__select--year',
-    })
+<script type="text/javascript">
+    $(function () {
+        $('.pickadate-months-year').pickadate({
+            labelMonthNext: 'Go to the next month',
+            labelMonthPrev: 'Go to the previous month',
+            labelMonthSelect: 'Pick a month from the dropdown',
+            labelYearSelect: 'Pick a year from the dropdown',
+            selectMonths: true,
+            selectYears: true
+        });
+    });
 </script>
 @endpush

@@ -468,7 +468,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ url ('app-assets/vendors/js/ui/prism.min.js')}}"></script>
+ 
+    <script src="{{url ('app-assets/vendors/js/ui/prism.min.js')}}"></script>
     <script src="{{url ('app-assets/vendors/js/tables/datatable/pdfmake.min.js')}}"></script>
     <script src="{{url ('app-assets/vendors/js/tables/datatable/vfs_fonts.js')}}"></script>
     <script src="{{url ('app-assets/vendors/js/tables/datatable/datatables.min.js')}}"></script>
@@ -484,18 +485,19 @@ License: You must have a valid license purchased only from themeforest(the above
     <script src="{{ url ('app-assets/js/core/app.js')}}"></script>
     <script src="{{ url ('app-assets/js/scripts/extensions/sweet-alerts.js')}}"></script>
     <script src="{{ url ('app-assets/js/scripts/datatables/datatable.js')}}"></script>
+    <script src="{{url ('app-assets/js/scripts/modal/components-modal.js')}}"></script>
     <!-- END: Theme JS-->
     @stack('scripts')
     <!-- BEGIN: Page JS-->
     @stack('js')
     <!-- END: Page JS-->
-    <script>
+    {{-- <script>
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-    </script>
+    </script> --}}
 </body>
 <!-- END: Body-->
 
