@@ -487,6 +487,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- END: Theme JS-->
     @stack('scripts')
     <!-- BEGIN: Page JS-->
+    @stack('js')
     <!-- END: Page JS-->
     <script>
         $.ajaxSetup({

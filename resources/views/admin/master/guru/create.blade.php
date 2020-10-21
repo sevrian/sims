@@ -1,4 +1,8 @@
-@extends('admin.master.guru.index')
+@extends('layout.index')
+
+@push('css')
+<link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/pickers/pickadate/pickadate.css')}}">
+@endpush
 
 @section('content')
 
@@ -24,30 +28,233 @@
      
    </div>
    <div class="content-body">
-       <!-- Description -->
-       {{-- <section id="description" class="card">
-           <div class="card-header">
-               <h4 class="card-title">Description</h4>
-           </div>
-           <div class="card-content">
-               <div class="card-body">
-                   <div class="card-text">
-                       <p>2 Columns layout is the most common and popular layout, it has a navigation with content section. This layout
-                           use the common navbar and footer sections, however you can add customized header or footer on page level.</p>
-                       <div class="alert alert-warning" role="alert">
-                           Vuexy Admin Template default layout is 2 columns. If you do not define pageConfig block on page or template
-                           level, it will consider 2 columns by default.
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </section> --}}
-       <!--/ Description -->
-       <!-- CSS Classes -->
-      @include('admin.master.data.jenis_ptk._form')
+  
+    <section id="css-classes" class="card">
+        <div class="card-header">
+            <h4 class="card-title">Form Guru</h4>
+        </div>
+        <div class="card-content">
+            <div class="card-body">
+                <div class="card-text">
+                 <div class="col-12">
+                    <div class="card">
+                       
+                        <div class="card-content">
+                            <div class="card-body">
+                                <form class="form form-horizontal">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>NIP</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" name="nip" placeholder="NIP">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Jenis PTK</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text"  class="form-control" name="jenisptk_id" placeholder="Jenis PTK">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Agama</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text"  class="form-control" name="Agama_id" placeholder="Agama">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Negara</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text"  class="form-control" name="negara_id" placeholder="Negara">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Nama Guru</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" i class="form-control" name="nama_guru" placeholder="Nama Guru">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Tempat Lahir</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" name="tanggal_lahir" placeholder="Tanggl Lahir">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Tanggal Lahir</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control pickadate-months-year picker__input--active" name="tanggal_lahir" placeholder="Tanggal Lahir">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Jenis Kelamin</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <fieldset class="form-group">
+                                                            <select class="custom-select" name="jenis_kelamin">
+                                                                
+                                                                <option value="Pria">Pria</option>
+                                                                <option value="Wanita">Wanita</option>
+                                                            </select>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>NIK</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="number"class="form-control" name="nik" placeholder="NIK">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>NUPTK</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text"  class="form-control" name="nuptk" placeholder="NUPTK">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Alamat</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text"  class="form-control" name="alamat" placeholder="Alamat">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Telepon</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="text"  class="form-control" name="telepon" placeholder="Telepon">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Email</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="password"  class="form-control" name="email" placeholder="Email">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Status Keaktifan</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <fieldset class="form-group">
+                                                            <select class="custom-select" name="status_aktif">
+                                                                
+                                                                <option value="Pria">Aktif</option>
+                                                                <option value="Wanita">Tidak Aktif</option>
+                                                            </select>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Foto</span>
+                                                    </div>
+                                                    <div class="col-lg-8 col-md-12">
+                                                        <fieldset class="form-group">
+                                                           
+                                                            <div class="custom-file">
+                                                                <input type="file" class="custom-file-input" name="foto">
+                                                                <label class="custom-file-label" for="inputGroupFile01">Pilih file</label>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <span>Password</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input type="password"  class="form-control" name="password" placeholder="Password">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 offset-md-10">
+                                                <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
        <!--/ CSS Classes -->
   
        
    </div>
 </div>
 @endsection
+@push('js')
+<script src="{{ url ('app-assets/vendors/js/pickers/pickadate/picker.js')}}"></script>
+<script src="{{ url ('app-assets/vendors/js/pickers/pickadate/picker.date.js')}}"></script>
+<script src="{{ url ('app-assets/vendors/js/pickers/pickadate/legacy.js')}}""></script>
+<script src="{{ url ('app-assets/js/scripts/pickers/dateTime/pick-a-datetime.js')}}"></script>
+@endpush
+@push('scripts')
+<script>
+    $('.datepicker').pickadate({
+        selectYear: 'picker__select--year',
+    })
+</script>
+@endpush

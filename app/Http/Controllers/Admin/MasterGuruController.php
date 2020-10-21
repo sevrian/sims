@@ -20,11 +20,14 @@ class MasterGuruController extends Controller
         $query = Guru::all();
         if ($request->ajax()) {
 
-            return datatables()->of($query)->make(true);
+            return datatables()->of($query)
+
+                ->make(true);
         }
         return view('admin.master.guru.index');
         // return redirect()->route('guru.index', compact('data'));
-    }    /**
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -42,12 +45,31 @@ class MasterGuruController extends Controller
      */
     public function store(Request $request)
     {
-        Item::updateOrCreate(
-            ['id' => $request->Item_id],
-            ['name' => $request->name, 'description' => $request->description]
-        );
+       
+        $request->validate([
+            'nama_guru' => 'required',
+            'nip' => 'required',
+            'jenis_ptk' => 'required',
+            'agama_id' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
+            'nama_guru' => 'required',
 
-        return response()->json(['success' => 'Item saved successfully.']);
+        ]);
+
+        Negara::create($request->all());
+
+        return redirect()->route('negara.index')
+            ->with('success', 'Data Berhasil disimpan');
     }
 
     /**
