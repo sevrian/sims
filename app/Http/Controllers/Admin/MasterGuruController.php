@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Master\Guru;
 use App\Models\Master\Agama;
+use Illuminate\Support\Facades\Hash;
 
 class MasterGuruController extends Controller
 {
@@ -46,21 +47,13 @@ class MasterGuruController extends Controller
     public function store(Request $request)
     {
         $id = $request->id;
-
-        $request->validate([
-            'nama_guru' => 'required',
-            'nip' => 'required',
-            'jenisptk_id' => 'required',
-            'password' => 'required',
-
-        ]);
         $listguru = Guru::updateOrCreate(['id' => $id], [
             'nama_guru' => $request->nama_guru,
             'nip' => $request->nip,
             'jenisptk_id' => $request->jenisptk_id,
             'negara_id' => $request->negara_id,
             'agama_id' => $request->agama_id,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'tanggal_lahir' => $request->tanggal_lahir,
             'temapat_lahir' => $request->temapat_lahir,
             'jenis_kelamin' => $request->jenis_kelamain,
@@ -70,7 +63,7 @@ class MasterGuruController extends Controller
             'alamat' => $request->alamat,
             'email' => $request->email,
             'status_aktif' => $request->status_aktif,
-            'foto=>$request->foto'
+            'foto' => $request->foto
         ]);
         return response()->json($listguru);
     }

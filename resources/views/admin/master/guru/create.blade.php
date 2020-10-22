@@ -1,4 +1,4 @@
-@extends('layout.index')
+{{-- @extends('layout.index')
 
 @push('css')
 <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/pickers/pickadate/pickadate.css')}}">
@@ -46,10 +46,11 @@
                        
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" action="{{ route('guru.store')}}" method="POST">
-                                    @csrf 
+                                <form class="form form-horizontal" id="form-guru" name="form-guru">
                                     <div class="form-body">
                                         <div class="row">
+                                            <input type="hidden" name="id" id="id">
+
                                             <div class="col-12">
                                                 <div class="form-group row">
                                                     <div class="col-md-4">
@@ -230,7 +231,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-8 offset-md-10">
-                                                <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Submit</button>
+                                                <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect waves-light" id="tombol-simpan"
+                                                value="create">Submit</button>
                                                 
                                             </div>
                                         </div>
@@ -269,5 +271,41 @@
             selectYears: true
         });
     });
+     //SIMPAN & UPDATE DATA DAN VALIDASI (SISI CLIENT)
+        //jika id = form-tambah-edit panjangnya lebih dari 0 atau bisa dibilang terdapat data dalam form tersebut maka
+        //jalankan jquery validator terhadap setiap inputan dll dan eksekusi script ajax untuk simpan data
+        if ($("#from-guru").length > 0) {
+            $("#form-guru").validate({
+                submitHandler: function (form) {
+                    var actionType = $('#tombol-simpan').val();
+                    $('#tombol-simpan').html('Sending..');
+
+                    $.ajax({
+                        data: $('#form-tambah-edit')
+                            .serialize(), //function yang dipakai agar value pada form-control seperti input, textarea, select dll dapat digunakan pada URL query string ketika melakukan ajax request
+                        url: "{{ route('guru.store') }}", //url simpan data
+                        type: "POST", //karena simpan kita pakai method POST
+                        dataType: 'json', //data tipe kita kirim berupa JSON
+                        success: function (data) { //jika berhasil 
+                            $('.form-tambah-edit').trigger("reset"); //form reset
+                            $('#tambah-edit-modal').modal('hide'); //modal hide
+                            $('#tombol-simpan').html('Simpan'); //tombol simpan
+                            var oTable = $('#table-guru').dataTable(); //inialisasi datatable
+                            oTable.fnDraw(false); //reset datatable
+                            iziToast.success({ //tampilkan iziToast dengan notif data berhasil disimpan pada posisi kanan bawah
+                                title: 'Data Berhasil Disimpan',
+                                message: '{{ Session('
+                                success ')}}',
+                                position: 'bottomRight'
+                            });
+                        },
+                        error: function (data) { //jika error tampilkan error pada console
+                            console.log('Error:', data);
+                            $('#tombol-simpan').html('Simpan');
+                        }
+                    });
+                }
+            })
+        }
 </script>
-@endpush
+@endpush --}}

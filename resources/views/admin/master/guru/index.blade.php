@@ -65,6 +65,14 @@
 
 @push('scripts')
 <script>
+     $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+        });
+
     $(document).ready(function() {
     $('#table-guru').DataTable({
         serverSide: true,
@@ -88,7 +96,7 @@
         $('#create').click(function () {
             $('#button-simpan').val("create-post"); //valuenya menjadi create-post
             $('#id').val(''); //valuenya menjadi kosong
-            $('#form-tambah-edit').trigger("reset"); //mereset semua input dll didalamnya
+            $('#form-guru').trigger("reset"); //mereset semua input dll didalamnya
             $('#modal-judul').html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
             $('.tambah-edit-modal').modal('show'); //modal tampil
         });
