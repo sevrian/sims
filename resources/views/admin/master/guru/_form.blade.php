@@ -2,7 +2,7 @@
 @push('css')
 <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/pickers/pickadate/pickadate.css')}}">
 @endpush
-<div class="modal fade tambah-edit-modal" id="exampleModalScrollable" tabindex="-1" role="dialog"
+<div class="modal fade " id="tambah-edit-modal" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
@@ -249,7 +249,7 @@
                 $('#tombol-simpan').html('Sending..');
 
                 $.ajax({
-                    data: $('#form-tambah-edit')
+                    data: $('#form-guru')
                         .serialize(), //function yang dipakai agar value pada form-control seperti input, textarea, select dll dapat digunakan pada URL query string ketika melakukan ajax request
                     url: "{{ route('guru.store') }}", //url simpan data
                     type: "POST", //karena simpan kita pakai method POST

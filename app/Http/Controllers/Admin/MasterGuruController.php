@@ -53,7 +53,7 @@ class MasterGuruController extends Controller
             'jenisptk_id' => $request->jenisptk_id,
             'negara_id' => $request->negara_id,
             'agama_id' => $request->agama_id,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
             'tanggal_lahir' => $request->tanggal_lahir,
             'temapat_lahir' => $request->temapat_lahir,
             'jenis_kelamin' => $request->jenis_kelamain,
