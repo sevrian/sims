@@ -132,8 +132,8 @@
                             href="{{ url ('profil_sekolah')}}"><i></i><span class="menu-item"
                                 data-i18n="2 columns">Profil Sekolah</a>
                     </li>
-                    <li class="{{ Request::is('tahun_akademik')?'active':''}}"><a
-                        href="{{ url ('tahun_akademik')}}"><i></i><span class="menu-item"
+                    <li class="{{ Request::is('akademik')?'active':''}}"><a
+                        href="{{ url ('akademik')}}"><i></i><span class="menu-item"
                             data-i18n="2 columns">Tahun Akademik</a>
                 </li>
                     <li class="{{ Request::is('catatan')?'active':''}}"><a href="{{ url ('catatan')}}"><i></i><span

@@ -1,4 +1,4 @@
-{{-- @extends('layout.index')
+@extends('layout.index')
 
 @push('css')
 <link rel="stylesheet" type="text/css" href="{{ url ('app-assets/vendors/css/pickers/pickadate/pickadate.css')}}">
@@ -308,4 +308,4 @@
             })
         }
 </script>
-@endpush --}}
+@endpush

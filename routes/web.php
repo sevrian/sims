@@ -29,7 +29,7 @@ Route::resources([
     'agama' => 'Admin\AgamaController',
     'negara' => 'Admin\NegaraController',
     'jenis_ptk' => 'Admin\PtkController',
-    'tahun_akademik' => 'Admin\TahunAkademikController',
+    'akademik' => 'Admin\AkademikController',
     'profil_sekolah' => 'Admin\ProfilSekolahController',
 ]);
 

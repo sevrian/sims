@@ -98,7 +98,7 @@
             $('#id').val(''); //valuenya menjadi kosong
             $('#form-guru').trigger("reset"); //mereset semua input dll didalamnya
             $('#modal-judul').html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
-            $('#wtambah-edit-modal').modal('show'); //modal tampil
+            $('#tambah-edit-modal').modal('show'); //modal tampil
         });
 
 </script>
