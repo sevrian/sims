@@ -38,7 +38,13 @@ class AkademikController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_tahun' => 'required|unique:tahun_akademik',
+
+        ]);
+        TahunAkademik::create($request->all());
+        return redirect()->route('akademik.index')
+            ->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -60,7 +66,8 @@ class AkademikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $akademik = TahunAkademik::findorfail($id);
+        return view('admin.master.data.akademik.edit', compact('akademik'));
     }
 
     /**
@@ -72,7 +79,13 @@ class AkademikController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_tahun' => 'required',
+        ]);
+        $akademik = TahunAkademik::findOrfail($id);
+        $akademik->update($request->all());
+        return redirect()->route('akademik.index')
+            ->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -83,6 +96,10 @@ class AkademikController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $akademik = TahunAkademik::findorfail($id);
+        $akademik->delete($id);
+
+        return redirect()->route('akademik.index')
+            ->with('success', 'Data Berhasil Dihapus');
     }
 }

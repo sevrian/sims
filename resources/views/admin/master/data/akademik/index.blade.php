@@ -50,6 +50,7 @@
                                         <th>Semester</th>
                                         <th>Status</th>
                                         <th>Bulan</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,9 +60,9 @@
 
                                         <td>{{ ++$i }}</td>
                                         <td>{{ $hasil->nama_tahun}}</td>
-                                        <th>{{ $hasil->semester}}</th>
-                                        <th>{{$hasil->aktif}}</th>
-                                        <th>{{$hasil->bulan}}</th>
+                                        <td>{{ $hasil->semester}}</td>
+                                        <td>{{$hasil->aktif}}</td>
+                                        <td>{{$hasil->bulan}}</td>
                                         <td>
                                             <form action="{{ route('akademik.destroy',$hasil->id) }}" method="POST">
 

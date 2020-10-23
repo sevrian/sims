@@ -52,8 +52,8 @@
                                                                 <span>Akademik</span>
                                                             </div>
                                                             <div class="col-md-8">
-                                                                <input type="text" class="form-control" name="akademik"
-                                                                    placeholder="Akademik">
+                                                                <input type="text" class="form-control" name="nama_tahun"
+                                                                    placeholder="Nama Tahun">
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
