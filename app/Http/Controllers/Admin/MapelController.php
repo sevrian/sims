@@ -47,6 +47,7 @@ class MapelController extends Controller
             'simpan'=>route($this->defaulturl.'.store'),
             'view'=>$this->view,
             'url'=>$url,
+            'extend'=>'@csrf @method("DELETE")',
         ];
         return (object)$setting;
     }

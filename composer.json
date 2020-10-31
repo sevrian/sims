@@ -42,7 +42,8 @@
             "database/factories"
         ],
         "files": [
-            "app/Helpers/button_helpers.php"
+            "app/Helpers/button_helpers.php",
+            "app/Helpers/actionbtn_helper.php"
         ]
     },
     "autoload-dev": {
