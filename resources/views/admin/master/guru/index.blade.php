@@ -39,9 +39,12 @@
                         <table class="table table-striped table-bordered table-sm" id="table-guru">
                             <thead>
                               <tr>
-                                
                                <th>Name</th>
+                               <th>NIP</th>
+                               <th>Telepon</th>
+                               <th>NIK</th>
                                <th>Alamat</th>
+                               <th>Email</th>
                                <th>Telepon</th>
                                <th>Status</th>
                               </tr>

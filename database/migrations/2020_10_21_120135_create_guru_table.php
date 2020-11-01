@@ -17,12 +17,11 @@ class CreateGuruTable extends Migration
             $table->id();
             $table->string('nip')->nullable();
             $table->string('nik')->nullable();
-            $table->integer('jenisptk_id_');
+            $table->integer('jenisptk_id')->nullable();
             $table->integer('agama_id');
             $table->integer('negara_id');
-            $table->string('password');
             $table->string('nama_guru');
-            $table->string('tanggal_lahir');
+            $table->date('tanggal_lahir');
             $table->string('temapat_lahir');
             $table->string('jenis_kelamin');
             $table->string('nuptk')->nullable();

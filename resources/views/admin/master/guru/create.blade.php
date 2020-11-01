@@ -46,7 +46,8 @@
                        
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-horizontal" id="form-guru" name="form-guru">
+                                <form class="form form-horizontal" action="{{ route('guru.store')}}" method="POST">
+                                    @csrf
                                     <div class="form-body">
                                         <div class="row">
                                             <input type="hidden" name="id" id="id">
@@ -68,7 +69,7 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <input type="text"  class="form-control" name="jenisptk_id" placeholder="Jenis PTK">
-                                                    </div>
+                                                    </div> 
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -77,8 +78,16 @@
                                                         <span>Agama</span>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="text"  class="form-control" name="Agama_id" placeholder="Agama">
+                                                        <fieldset class="form-group">
+                                                            <select class="custom-select" id="customSelect">
+                                                                <option selected>Pilih agama</option>
+                                                                @foreach ($agama as $hasil) 
+                                                                <option >{{ $hasil->nama}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </fieldset>
                                                     </div>
+                                                   
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -87,7 +96,14 @@
                                                         <span>Negara</span>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="text"  class="form-control" name="negara_id" placeholder="Negara">
+                                                        <fieldset class="form-group">
+                                                            <select class="custom-select" id="customSelect">
+                                                                <option selected>Pilih Negara</option>
+                                                                @foreach ($negara as $hasil) 
+                                                                <option >{{ $hasil->nama_negara}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </fieldset>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,7 +123,7 @@
                                                         <span>Tempat Lahir</span>
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <input type="text" class="form-control" name="tanggal_lahir" placeholder="Tanggl Lahir">
+                                                        <input type="text" class="form-control pickadate-months-yea" name="tanggal_lahir" placeholder="Tanggl Lahir">
                                                     </div>
                                                 </div>
                                             </div>
