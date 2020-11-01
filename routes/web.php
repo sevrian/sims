@@ -31,6 +31,7 @@ Route::resources([
     'jenis_ptk' => 'Admin\PtkController',
     'akademik' => 'Admin\AkademikController',
     'profil_sekolah' => 'Admin\ProfilSekolahController',
+    'role' => 'Admin\RoleController'
 ]);
 
 Route::get('siswa', function () {
