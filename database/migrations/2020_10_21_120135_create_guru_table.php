@@ -16,6 +16,7 @@ class CreateGuruTable extends Migration
         Schema::create('guru', function (Blueprint $table) {
             $table->id();
             $table->string('nip')->nullable();
+            $table->string('nik')->nullable();
             $table->integer('jenisptk_id_');
             $table->integer('agama_id');
             $table->integer('negara_id');
@@ -24,12 +25,11 @@ class CreateGuruTable extends Migration
             $table->string('tanggal_lahir');
             $table->string('temapat_lahir');
             $table->string('jenis_kelamin');
-            $table->string('nik')->nullable();
             $table->string('nuptk')->nullable();
             $table->string('telepon')->nullable();
             $table->string('alamat');
             $table->string('email');
-            $table->string('status_aktif');
+            $table->string('status_aktif')->nullable();
             $table->string('foto')->nullable();
             $table->timestamps();
         });

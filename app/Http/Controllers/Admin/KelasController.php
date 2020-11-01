@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role;
 use Illuminate\Http\Request;
+use App\Models\Master\Kelas;
 
-class RoleController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $role = Role::latest()->paginate(5);
-        return view('admin.role.index', ['role' => $role]);
+        $kelas = Kelas::latest()->paginate(5);
+        return view('admin.master.kelas.index', ['kelas' => $kelas]);
     }
 
     /**
@@ -26,7 +26,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('admin.role.create');
+        return view('admin.master.kelas.create');
     }
 
     /**
@@ -38,11 +38,11 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_role' => 'required|unique:role',
+            'nama_kelas' => 'required|unique:kelas',
 
         ]);
-        Role::create($request->all());
-        return redirect()->route('role.index')
+        Kelas::create($request->all());
+        return redirect()->route('kelas.index')
             ->with('success', 'Data Berhasil Disimpan');
         //
     }
@@ -65,8 +65,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $role  = role::findorfail($id);
-        return view('admin.role.edit', ['role' => $role]);
+        $kelas  = Kelas::findorfail($id);
+        return view('admin.master.kelas.edit', ['kelas' => $kelas]);
     }
 
     /**
@@ -79,12 +79,12 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nama_role' => 'required',
+            'nama_kelas' => 'required',
 
         ]);
-        $role = Role::findorfail($id);
-        $role->update($request->all());
-        return redirect()->route('role.index')
+        $kelas = Kelas::findorfail($id);
+        $kelas->update($request->all());
+        return redirect()->route('kelas.index')
             ->with('success', 'Data Berhasil Disimpan');
     }
 
@@ -96,7 +96,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        Role::find($id)->delete();
-        return back()->with('success', 'Data Berhasil Dihapus');
+        Kelas::find($id)->delete();
+        return redirect()->route('kelas.index')->with('success', 'Data Berhasil Disimpan');
     }
 }

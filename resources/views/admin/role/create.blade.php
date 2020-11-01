@@ -7,14 +7,14 @@
         <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h2 class="content-header-title float-left mb-0">Agama</h2>
+                    <h2 class="content-header-title float-left mb-0">Role</h2>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="sk-layout-2-columns.html">Home</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Agama</a>
+                            <li class="breadcrumb-item"><a href="#">Role</a>
                             </li>
-                            <li class="breadcrumb-item active">Tambah Agama
+                            <li class="breadcrumb-item active">Tambah Role
                             </li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
         @endif
         <section id="css-classes" class="card">
             <div class="card-header">
-                <h4 class="card-title">Form Tambah Agama</h4>
+                <h4 class="card-title">Form Tambah Role</h4>
             </div>
             <div class="card-content">
                 <div class="card-body">
@@ -48,7 +48,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
-                                                            <span> Nama Agama</span>
+                                                            <span> Nama Role</span>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <input type="text" class="form-control" name="nama_role" placeholder="Nama Role" >

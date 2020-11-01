@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Master\Guru;
-use App\Models\Master\Agama;
-use Illuminate\Support\Facades\Hash;
+
 
 class MasterGuruController extends Controller
 {
@@ -15,18 +14,10 @@ class MasterGuruController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
-        $query = Guru::all();
-        if ($request->ajax()) {
-
-            return datatables()->of($query)
-
-                ->make(true);
-        }
-        return view('admin.master.guru.index');
-        // return redirect()->route('guru.index', compact('data'));
+        $kelas = Guru::latest()->paginate(5);
+        return view('admin.master.guru.index', ['guru' => $kelas]);
     }
     /**
      * Show the form for creating a new resource.
@@ -46,6 +37,8 @@ class MasterGuruController extends Controller
      */
     public function store(Request $request)
     {
+
+        
         $id = $request->id;
         $listguru = Guru::updateOrCreate(['id' => $id], [
             'nama_guru' => $request->nama_guru,

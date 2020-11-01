@@ -22,7 +22,7 @@
            </div>
        </div>
        <div class="content-header-right text-md-right col-md-3 col-12 d-md-block d-none">
-        <a href="javascript:void(0)" type="button" id="create" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
+        <a href="{{route('guru.create')}}" type="button" id="create" class="btn btn-primary mr-1 mb-1 waves-effect waves-light">Tambah</a>
        </div>
    </div>
   
@@ -64,43 +64,5 @@
 @endsection
 
 @push('scripts')
-<script>
-     $(document).ready(function () {
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-        });
 
-    $(document).ready(function() {
-    $('#table-guru').DataTable({
-        serverSide: true,
-        ajax : {
-            url:"{{ route ('guru.index')}}",
-            type: 'GET'
-        },
-        columns:[
-            { data : 'nama_guru'},
-            { data : 'alamat'},
-            { data : 'telepon'},
-            { data : 'status_aktif'},
-            
-
-        ],
-        order:[[0,'asc']]
-    });
-} );
-//TOMBOL TAMBAH DATA
-        //jika tombol-tambah diklik maka
-        $('#create').click(function () {
-            $('#button-simpan').val("create-post"); //valuenya menjadi create-post
-            $('#id').val(''); //valuenya menjadi kosong
-            $('#form-guru').trigger("reset"); //mereset semua input dll didalamnya
-            $('#modal-judul').html("Tambah Pegawai Baru"); //valuenya tambah pegawai baru
-            $('#tambah-edit-modal').modal('show'); //modal tampil
-        });
-
-</script>
-    
 @endpush
